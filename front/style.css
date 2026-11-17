@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #ffe984 !important;
+}
+
+input {
+    width: 50%;
+}
+
+.card{
+    border: none !important;
+}
+
+.card-header{
+    background-color: #fea50c !important;
+}
+
+/**/
+.pesquisa{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.pesquisa i{
+    font-size: 18px;
+}
+
+.pesquisa input{
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+}
+
+#lista-box{
+    background-color: rgb(71, 71, 71);
+    border-radius: 15px;
+}
