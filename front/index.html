@@ -1,121 +1,341 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="./style.css">
+    <title>Minha Biblioteca</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <header>
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="./img/logo.png" alt="Logo" width="90" height="auto" class="d-inline-block align-text">
-                    Bootstrap
-                </a>
+                <span class="navbar-brand mb-0 h1">
+                    <i class="fa-solid fa-book-open me-2"></i>Minha Biblioteca
+                </span>
+                <form class="d-flex gap-2" id="form-busca" role="search">
+                    <label for="busca-id" class="visually-hidden">Buscar material pelo ID</label>
+                    <input class="form-control" type="number" min="1" id="busca-id" placeholder="Buscar por ID">
+                    <button class="btn btn-dark text-nowrap" type="submit">Buscar</button>
+                </form>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="container-fluid p-4" id="dash">
-            <h3 class="text-black">Dashboard</h3>
+        <!-- Dashboard -->
+        <section class="container-fluid p-4" id="dash" aria-labelledby="titulo-dash">
+            <h2 class="h3 text-black" id="titulo-dash">Dashboard</h2>
             <div class="row g-4">
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card">
-                        <div class="card-header">
-                            Materiais
-                        </div>
+                        <div class="card-header">Materiais</div>
                         <div class="card-body">
-                            <figure>
-                                <blockquote class="blockquote">
-                                    <p>00</p>
-                                </blockquote>
-                                <figcaption class="blockquote-footer">
-                                    <cite title="Source Title">Todos os Materias</cite>
-                                </figcaption>
-                            </figure>
+                            <p class="display-6 mb-0" id="total-materiais">0</p>
+                            <p class="text-body-secondary mb-0">Todos os materiais</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card">
-                        <div class="card-header">
-                            Livros
-                        </div>
+                        <div class="card-header">Livros</div>
                         <div class="card-body">
-                            <figure>
-                                <blockquote class="blockquote">
-                                    <p>00</p>
-                                </blockquote>
-                                <figcaption class="blockquote-footer">
-                                    <cite title="Source Title">Todos os Livros</cite>
-                                </figcaption>
-                            </figure>
+                            <p class="display-6 mb-0" id="total-livros">0</p>
+                            <p class="text-body-secondary mb-0">Todos os livros</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card">
-                        <div class="card-header">
-                            Revistas
-                        </div>
+                        <div class="card-header">Revistas</div>
                         <div class="card-body">
-                            <figure>
-                                <blockquote class="blockquote">
-                                    <p>00</p>
-                                </blockquote>
-                                <figcaption class="blockquote-footer">
-                                    <cite title="Source Title">Todas as Resvistas</cite>
-                                </figcaption>
-                            </figure>
+                            <p class="display-6 mb-0" id="total-revistas">0</p>
+                            <p class="text-body-secondary mb-0">Todas as revistas</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <div class="pesquisa p-4">
-            <i class="fa-solid fa-magnifying-glass"></i><input type="text">
-        </div>
-        <section class="container-fluid p-4" id="lista">
-            <div class="row g-4 p-3" id="lista-box">
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card" id="card-lista">
-                        <div class="card-header">
-                            Livro ou Revista
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Titulo</h5>
-                            <p>ano de publicação</p>
-                            <p>tipo do material</p>
-                            <p>autor e páginas ou edição e mês de publicação</p>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <a href="#" class="btn btn-primary">ações disponíveis</a>
-                        </div>
+        <!-- Cadastro -->
+        <section class="container-fluid p-4" id="cadastro" aria-labelledby="titulo-cadastro">
+            <h2 class="h3 text-black" id="titulo-cadastro">Cadastrar material</h2>
+            <div class="card">
+                <div class="card-header">
+                    <ul class="nav nav-pills" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="aba-livro" data-bs-toggle="pill"
+                                data-bs-target="#painel-livro" type="button" role="tab"
+                                aria-controls="painel-livro" aria-selected="true">Livro</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="aba-revista" data-bs-toggle="pill"
+                                data-bs-target="#painel-revista" type="button" role="tab"
+                                aria-controls="painel-revista" aria-selected="false">Revista</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body tab-content">
+                    <!-- Formulário de livro -->
+                    <div class="tab-pane fade show active" id="painel-livro" role="tabpanel" aria-labelledby="aba-livro">
+                        <form id="form-livro" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="livro-titulo" class="form-label">Título</label>
+                                    <input type="text" class="form-control" id="livro-titulo" required>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="livro-autor" class="form-label">Autor</label>
+                                    <input type="text" class="form-control" id="livro-autor" required>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <label for="livro-ano" class="form-label">Ano de publicação</label>
+                                    <input type="number" class="form-control" id="livro-ano" required>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <label for="livro-paginas" class="form-label">Número de páginas</label>
+                                    <input type="number" class="form-control" id="livro-paginas" min="1" required>
+                                </div>
+                            </div>
+                            <div class="alert alert-danger mt-3 d-none" id="erros-livro" role="alert"></div>
+                            <button type="submit" class="btn btn-dark mt-3">Cadastrar livro</button>
+                        </form>
+                    </div>
+
+                    <!-- Formulário de revista -->
+                    <div class="tab-pane fade" id="painel-revista" role="tabpanel" aria-labelledby="aba-revista">
+                        <form id="form-revista" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="revista-titulo" class="form-label">Título</label>
+                                    <input type="text" class="form-control" id="revista-titulo" required>
+                                </div>
+                                <div class="col-6 col-md-2">
+                                    <label for="revista-ano" class="form-label">Ano de publicação</label>
+                                    <input type="number" class="form-control" id="revista-ano" required>
+                                </div>
+                                <div class="col-6 col-md-2">
+                                    <label for="revista-edicao" class="form-label">Nº da edição</label>
+                                    <input type="number" class="form-control" id="revista-edicao" min="1" required>
+                                </div>
+                                <div class="col-12 col-md-2">
+                                    <label for="revista-mes" class="form-label">Mês</label>
+                                    <select class="form-select" id="revista-mes" required>
+                                        <option value="">Escolha</option>
+                                        <option value="1">Janeiro</option>
+                                        <option value="2">Fevereiro</option>
+                                        <option value="3">Março</option>
+                                        <option value="4">Abril</option>
+                                        <option value="5">Maio</option>
+                                        <option value="6">Junho</option>
+                                        <option value="7">Julho</option>
+                                        <option value="8">Agosto</option>
+                                        <option value="9">Setembro</option>
+                                        <option value="10">Outubro</option>
+                                        <option value="11">Novembro</option>
+                                        <option value="12">Dezembro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="alert alert-danger mt-3 d-none" id="erros-revista" role="alert"></div>
+                            <button type="submit" class="btn btn-dark mt-3">Cadastrar revista</button>
+                        </form>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Lista de materiais -->
+        <section class="container-fluid p-4" id="lista" aria-labelledby="titulo-lista">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h2 class="h3 text-black mb-0" id="titulo-lista">Materiais cadastrados</h2>
+                <button class="btn btn-outline-dark" id="btn-recarregar" type="button">
+                    <i class="fa-solid fa-rotate me-1"></i>Atualizar lista
+                </button>
+            </div>
+
+            <div id="lista-box" class="p-4" aria-live="polite">
+                <!-- mensagem de lista vazia ou de erro (o JS só troca o texto e mostra) -->
+                <p class="mensagem-vazia mb-0 d-none" id="mensagem-lista"></p>
+                <!-- os cards são copiados do modelo abaixo -->
+                <div class="row g-4" id="lista-cards"></div>
             </div>
         </section>
     </main>
 
-    <script src="./script.js"></script>
+    <!-- MODELO DO CARD DE MATERIAL (o JS copia este modelo para cada livro ou revista) -->
+    <template id="modelo-card">
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-header" data-campo="cabecalho"></div>
+                <div class="card-body">
+                    <h3 class="card-title h5" data-campo="titulo"></h3>
+                    <p class="mb-1">ID: <span data-campo="id"></span></p>
+                    <p class="mb-1">Ano de publicação: <span data-campo="ano"></span></p>
+                    <p class="mb-1">Tipo: <span data-campo="tipo"></span></p>
+
+                    <p class="mb-1" data-livro>Autor: <span data-campo="autor"></span></p>
+                    <p class="mb-1" data-livro>Páginas: <span data-campo="paginas"></span></p>
+
+                    <p class="mb-1" data-revista>Edição: <span data-campo="edicao"></span></p>
+                    <p class="mb-1" data-revista>Mês: <span data-campo="mes"></span></p>
+
+                    <div class="card-acoes mt-3">
+                        <button type="button" class="btn btn-sm btn-outline-dark" data-acao="consultar">
+                            <i class="fa-solid fa-magnifying-glass me-1" aria-hidden="true"></i>Consultar
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-dark" data-acao="descricao">
+                            <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Descrição
+                        </button>
+                        <button type="button" class="btn btn-sm btn-success" data-acao="emprestar">
+                            <i class="fa-solid fa-hand-holding me-1" aria-hidden="true"></i>Emprestar
+                        </button>
+                        <button type="button" class="btn btn-sm btn-warning" data-acao="editar">
+                            <i class="fa-solid fa-pen me-1" aria-hidden="true"></i>Editar
+                        </button>
+                        <button type="button" class="btn btn-sm btn-danger" data-acao="excluir">
+                            <i class="fa-solid fa-trash me-1" aria-hidden="true"></i>Excluir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Mensagens de sucesso e erro -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toast-msg" class="toast align-items-center border-0" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="toast-texto"></div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Fechar mensagem"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: consulta por ID -->
+    <div class="modal fade" id="modal-detalhes" tabindex="-1" aria-labelledby="modal-detalhes-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modal-detalhes-titulo">Detalhes do material</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-2"><strong>ID:</strong> <span data-campo="id"></span></p>
+                    <p class="mb-2"><strong>Título:</strong> <span data-campo="titulo"></span></p>
+                    <p class="mb-2"><strong>Ano de publicação:</strong> <span data-campo="ano"></span></p>
+                    <p class="mb-2"><strong>Tipo:</strong> <span data-campo="tipo"></span></p>
+
+                    <p class="mb-2" data-livro><strong>Autor:</strong> <span data-campo="autor"></span></p>
+                    <p class="mb-2" data-livro><strong>Páginas:</strong> <span data-campo="paginas"></span></p>
+
+                    <p class="mb-2" data-revista><strong>Edição:</strong> <span data-campo="edicao"></span></p>
+                    <p class="mb-2" data-revista><strong>Mês:</strong> <span data-campo="mes"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: descrição e prazo de empréstimo -->
+    <div class="modal fade" id="modal-descricao" tabindex="-1" aria-labelledby="modal-descricao-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="modal-descricao-titulo">Descrição e prazo</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-2"><strong>Tipo:</strong> <span data-campo="tipo"></span></p>
+                    <p class="mb-2"><strong>Descrição:</strong> <span data-campo="descricao"></span></p>
+                    <p class="mb-2"><strong>Prazo de empréstimo:</strong> <span data-campo="prazo"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: edição -->
+    <div class="modal fade" id="modal-edicao" tabindex="-1" aria-labelledby="modal-edicao-titulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="form-edicao" novalidate>
+                    <div class="modal-header">
+                        <h2 class="modal-title h5" id="modal-edicao-titulo">Editar material</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="edit-titulo" class="form-label">Título</label>
+                            <input type="text" class="form-control" id="edit-titulo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-ano" class="form-label">Ano de publicação</label>
+                            <input type="number" class="form-control" id="edit-ano" required>
+                        </div>
+
+                        <div id="edit-campos-livro">
+                            <div class="mb-3">
+                                <label for="edit-autor" class="form-label">Autor</label>
+                                <input type="text" class="form-control" id="edit-autor">
+                            </div>
+                            <div class="mb-3">
+                                <label for="edit-paginas" class="form-label">Número de páginas</label>
+                                <input type="number" class="form-control" id="edit-paginas" min="1">
+                            </div>
+                        </div>
+
+                        <div id="edit-campos-revista" class="d-none">
+                            <div class="mb-3">
+                                <label for="edit-edicao" class="form-label">Nº da edição</label>
+                                <input type="number" class="form-control" id="edit-edicao" min="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="edit-mes" class="form-label">Mês de publicação</label>
+                                <select class="form-select" id="edit-mes">
+                                    <option value="1">Janeiro</option>
+                                    <option value="2">Fevereiro</option>
+                                    <option value="3">Março</option>
+                                    <option value="4">Abril</option>
+                                    <option value="5">Maio</option>
+                                    <option value="6">Junho</option>
+                                    <option value="7">Julho</option>
+                                    <option value="8">Agosto</option>
+                                    <option value="9">Setembro</option>
+                                    <option value="10">Outubro</option>
+                                    <option value="11">Novembro</option>
+                                    <option value="12">Dezembro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-danger d-none" id="erros-edicao" role="alert"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-dark">Salvar alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu"
         crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+using Microsoft.Extensions.FileProviders;
 using MinhaBiblioteca.Models;
 using MinhaBiblioteca.Repositories;
 
@@ -10,6 +11,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IMaterialRepository, MaterialRepository>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirFrontend", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
@@ -24,9 +35,17 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "front")),
+    RequestPath = ""
+});
+
 app.UseAuthorization();
+
+app.UseCors("PermitirFrontend");
 
 app.MapControllers();
 
 app.Run();
-

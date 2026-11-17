@@ -86,7 +86,7 @@ namespace MinhaBiblioteca.Controllers
             if (livro.Paginas <= 0)
                 return BadRequest("O número de páginas deve ser maior que 0.");
 
-            var livroAtualizado = _repository.Atualizar(livro.Id, livro);
+            var livroAtualizado = _repository.Atualizar(id, livro);
             if (!livroAtualizado) return NotFound();
 
             return Ok(livro);
@@ -104,7 +104,7 @@ namespace MinhaBiblioteca.Controllers
             if (revista.MesPublicacao > 12 || revista.MesPublicacao < 1)
                 return BadRequest("O mês da publicação deve estar entre 1 e 12.");
 
-            var revistaAtualizado = _repository.Atualizar(revista.Id, revista);
+            var revistaAtualizado = _repository.Atualizar(Id, revista);
             if (!revistaAtualizado) return NotFound();
 
             return Ok(revista);
