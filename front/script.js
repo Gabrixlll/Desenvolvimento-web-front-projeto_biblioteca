@@ -1,1 +1,2 @@
-const API_URL = "http://localhost:5228/swagger/index.html";
+const API_URL = "http://localhost:5228/";
+
