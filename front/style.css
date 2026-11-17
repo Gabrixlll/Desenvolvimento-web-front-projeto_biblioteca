@@ -23,12 +23,6 @@ input {
 }
 
 /**/
-.pesquisa{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-top: 50px;
-}
 
 .pesquisa i{
     font-size: 18px;
