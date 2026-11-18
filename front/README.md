@@ -95,6 +95,15 @@ Bom, nós buscamos entender como fariamos a ligação da API com o front de dive
 
 2 . Daniel: Aprimorei meus conhecimentos em estruturação de html e css, juntamente da utilização do Bootstrap. Além disso entendi de maneira correta o funcionamento do Git;<br>
 
-3 . Gabriel: ;<br>
+3 . Gabriel: Compreendi a utilização do JavaScript para a integração de uma API no front-end;<br>
 
 4 . Pedro: ;
+
+## Integrantes e RGM:
+1 . Angelo Apontes Cabral 114.092
+
+2 . Daniel Próspero de Figueiredo 114.070
+
+3 . Gabriel Augusto Paulino Rodrigues 114.062
+
+4 . Pedro Pereira de Souza 114.047

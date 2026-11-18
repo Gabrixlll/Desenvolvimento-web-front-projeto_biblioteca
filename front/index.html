@@ -29,7 +29,6 @@
     </header>
 
     <main>
-        <!-- Dashboard -->
         <section class="container-fluid p-4" id="dash" aria-labelledby="titulo-dash">
             <h2 class="h3 text-black" id="titulo-dash">Dashboard</h2>
             <div class="row g-4">
@@ -63,7 +62,6 @@
             </div>
         </section>
 
-        <!-- Cadastro -->
         <section class="container-fluid p-4" id="cadastro" aria-labelledby="titulo-cadastro">
             <h2 class="h3 text-black" id="titulo-cadastro">Cadastrar material</h2>
             <div class="card">
@@ -103,12 +101,11 @@
                                     <input type="number" class="form-control" id="livro-paginas" min="1" required>
                                 </div>
                             </div>
-                            <div class="alert alert-danger mt-3 d-none" id="erros-livro fs-5" role="alert"></div>
+                            <div class="alert alert-danger mt-3 d-none  fs-5" id="erros-livro" role="alert"></div>
                             <button type="submit" class="btn btn-dark mt-3 fs-5 fw-semibold">Cadastrar livro</button>
                         </form>
                     </div>
 
-                    <!-- Formulário de revista -->
                     <div class="tab-pane fade" id="painel-revista" role="tabpanel" aria-labelledby="aba-revista">
                         <form id="form-revista" novalidate>
                             <div class="row g-3">
@@ -151,7 +148,6 @@
             </div>
         </section>
 
-        <!-- Lista de materiais -->
         <section class="container-fluid p-4" id="lista" aria-labelledby="titulo-lista">
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <h2 class="h3 text-black mb-0" id="titulo-lista">Materiais cadastrados</h2>
@@ -161,15 +157,12 @@
             </div>
 
             <div id="lista-box" class="p-4" aria-live="polite">
-                <!-- mensagem de lista vazia ou de erro (o JS só troca o texto e mostra) -->
                 <p class="mensagem-vazia mb-0 d-none" id="mensagem-lista"></p>
-                <!-- os cards são copiados do modelo abaixo -->
                 <div class="row g-4" id="lista-cards"></div>
             </div>
         </section>
     </main>
 
-    <!-- MODELO DO CARD DE MATERIAL (o JS copia este modelo para cada livro ou revista) -->
     <template id="modelo-card">
         <div class="col-12 col-sm-6 col-lg-4">
             <div class="card h-100">
@@ -208,7 +201,6 @@
         </div>
     </template>
 
-    <!-- Mensagens de sucesso e erro -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="toast-msg" class="toast align-items-center border-0" role="alert" aria-live="assertive"
             aria-atomic="true">
@@ -220,7 +212,6 @@
         </div>
     </div>
 
-    <!-- Modal: consulta por ID -->
     <div class="modal fade" id="modal-detalhes" tabindex="-1" aria-labelledby="modal-detalhes-titulo" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -247,7 +238,6 @@
         </div>
     </div>
 
-    <!-- Modal: descrição e prazo de empréstimo -->
     <div class="modal fade" id="modal-descricao" tabindex="-1" aria-labelledby="modal-descricao-titulo" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -267,7 +257,6 @@
         </div>
     </div>
 
-    <!-- Modal: edição -->
     <div class="modal fade" id="modal-edicao" tabindex="-1" aria-labelledby="modal-edicao-titulo" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
