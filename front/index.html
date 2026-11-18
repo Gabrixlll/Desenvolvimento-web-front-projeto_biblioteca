@@ -16,8 +16,8 @@
     <header>
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">
-                    <i class="fa-solid fa-book-open me-2"></i>Minha Biblioteca
+                <span class="navbar-brand mb-0 h1" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="./img/logo.png" style="width: 70px;" alt="">Minha Biblioteca
                 </span>
                 <form class="d-flex gap-2" id="form-busca" role="search">
                     <label for="busca-id" class="visually-hidden">Buscar material pelo ID</label>
@@ -35,27 +35,27 @@
             <div class="row g-4">
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card">
-                        <div class="card-header">Materiais</div>
+                        <div class="card-header fs-5 fw-semibold" style="color: white;">Materiais</div>
                         <div class="card-body">
-                            <p class="display-6 mb-0" id="total-materiais">0</p>
+                            <p class="display-6 mb-0 fw-semibold" id="total-materiais">0</p>
                             <p class="text-body-secondary mb-0">Todos os materiais</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card">
-                        <div class="card-header">Livros</div>
+                        <div class="card-header fs-5 fw-semibold" style="color: white;">Livros</div>
                         <div class="card-body">
-                            <p class="display-6 mb-0" id="total-livros">0</p>
+                            <p class="display-6 mb-0 fw-semibold" id="total-livros">0</p>
                             <p class="text-body-secondary mb-0">Todos os livros</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="card">
-                        <div class="card-header">Revistas</div>
+                        <div class="card-header fs-5 fw-semibold" style="color: white;">Revistas</div>
                         <div class="card-body">
-                            <p class="display-6 mb-0" id="total-revistas">0</p>
+                            <p class="display-6 mb-0 fw-semibold" id="total-revistas">0</p>
                             <p class="text-body-secondary mb-0">Todas as revistas</p>
                         </div>
                     </div>
@@ -70,12 +70,12 @@
                 <div class="card-header">
                     <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="aba-livro" data-bs-toggle="pill"
+                            <button class="nav-link active fs-5 fw-semibold" id="aba-livro" data-bs-toggle="pill"
                                 data-bs-target="#painel-livro" type="button" role="tab"
                                 aria-controls="painel-livro" aria-selected="true">Livro</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="aba-revista" data-bs-toggle="pill"
+                            <button class="nav-link fs-5 fw-semibold" id="aba-revista" data-bs-toggle="pill"
                                 data-bs-target="#painel-revista" type="button" role="tab"
                                 aria-controls="painel-revista" aria-selected="false">Revista</button>
                         </li>
@@ -87,24 +87,24 @@
                         <form id="form-livro" novalidate>
                             <div class="row g-3">
                                 <div class="col-12 col-md-6">
-                                    <label for="livro-titulo" class="form-label">Título</label>
+                                    <label for="livro-titulo" class="form-label fs-5">Título</label>
                                     <input type="text" class="form-control" id="livro-titulo" required>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <label for="livro-autor" class="form-label">Autor</label>
+                                    <label for="livro-autor" class="form-label fs-5">Autor</label>
                                     <input type="text" class="form-control" id="livro-autor" required>
                                 </div>
                                 <div class="col-6 col-md-3">
-                                    <label for="livro-ano" class="form-label">Ano de publicação</label>
+                                    <label for="livro-ano" class="form-label fs-5">Ano de publicação</label>
                                     <input type="number" class="form-control" id="livro-ano" required>
                                 </div>
                                 <div class="col-6 col-md-3">
-                                    <label for="livro-paginas" class="form-label">Número de páginas</label>
+                                    <label for="livro-paginas" class="form-label fs-5">Número de páginas</label>
                                     <input type="number" class="form-control" id="livro-paginas" min="1" required>
                                 </div>
                             </div>
-                            <div class="alert alert-danger mt-3 d-none" id="erros-livro" role="alert"></div>
-                            <button type="submit" class="btn btn-dark mt-3">Cadastrar livro</button>
+                            <div class="alert alert-danger mt-3 d-none" id="erros-livro fs-5" role="alert"></div>
+                            <button type="submit" class="btn btn-dark mt-3 fs-5 fw-semibold">Cadastrar livro</button>
                         </form>
                     </div>
 
@@ -113,19 +113,19 @@
                         <form id="form-revista" novalidate>
                             <div class="row g-3">
                                 <div class="col-12 col-md-6">
-                                    <label for="revista-titulo" class="form-label">Título</label>
+                                    <label for="revista-titulo" class="form-label fs-5">Título</label>
                                     <input type="text" class="form-control" id="revista-titulo" required>
                                 </div>
                                 <div class="col-6 col-md-2">
-                                    <label for="revista-ano" class="form-label">Ano de publicação</label>
+                                    <label for="revista-ano" class="form-label fs-5">Ano de publicação</label>
                                     <input type="number" class="form-control" id="revista-ano" required>
                                 </div>
                                 <div class="col-6 col-md-2">
-                                    <label for="revista-edicao" class="form-label">Nº da edição</label>
+                                    <label for="revista-edicao" class="form-label fs-5">Nº da edição</label>
                                     <input type="number" class="form-control" id="revista-edicao" min="1" required>
                                 </div>
                                 <div class="col-12 col-md-2">
-                                    <label for="revista-mes" class="form-label">Mês</label>
+                                    <label for="revista-mes" class="form-label fs-5">Mês</label>
                                     <select class="form-select" id="revista-mes" required>
                                         <option value="">Escolha</option>
                                         <option value="1">Janeiro</option>
@@ -144,7 +144,7 @@
                                 </div>
                             </div>
                             <div class="alert alert-danger mt-3 d-none" id="erros-revista" role="alert"></div>
-                            <button type="submit" class="btn btn-dark mt-3">Cadastrar revista</button>
+                            <button type="submit" class="btn btn-dark mt-3 fs-5 fw-semibold">Cadastrar revista</button>
                         </form>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
     <template id="modelo-card">
         <div class="col-12 col-sm-6 col-lg-4">
             <div class="card h-100">
-                <div class="card-header" data-campo="cabecalho"></div>
+                <div class="card-header fs-5 fw-semibold" style="color: white;" data-campo="cabecalho"></div>
                 <div class="card-body">
                     <h3 class="card-title h5" data-campo="titulo"></h3>
                     <p class="mb-1">ID: <span data-campo="id"></span></p>
