@@ -8,10 +8,9 @@ const MESES = [
 let materialEmEdicao = null;
 
 // Descobre o tipo do material.
-function descobrirTipo(m) {
-    const chaves = Object.keys(m);
-    if (chaves.includes("autor") || chaves.includes("paginas")) return "Livro";
-    if (chaves.includes("edicao") || chaves.includes("mesPublicacao")) return "Revista";
+function descobrirTipo(material) {
+    if (material.autor != null || material.paginas != null) return "Livro";
+    if (material.edicao != null || material.mesPublicacao != null) return "Revista";
     return "Material";
 }
 
@@ -138,7 +137,7 @@ function validarRevista(d) {
 
 // busca os detalhes em GET /api/Materiais/{id}.
 async function completarMaterial(item) {
-    const jaCompleto = ["autor", "paginas", "edicao", "mesPublicacao"].some((c) => c in item);
+    const jaCompleto = ["autor", "paginas", "edicao", "mesPublicacao"].some((c) => item[c] != null);
     if (jaCompleto) return item;
 
     const response = await fetch(`${API_URL}/${item.id}`);
@@ -150,6 +149,7 @@ async function completarMaterial(item) {
 
 async function carregarMateriais() {
     try {
+
         const response = await fetch(API_URL);
 
         if (!response.ok) {
@@ -162,8 +162,10 @@ async function carregarMateriais() {
 
         atualizarDashboard(materiais);
         renderizarLista(materiais);
+
     } catch (error) {
         console.error("Não foi possível carregar os materiais:", error);
+
         atualizarDashboard([]);
         mostrarMensagemNaLista("Não foi possível carregar os materiais. Verifique se a API está rodando.");
         mostrarMensagem("Erro ao conectar com a API. Verifique se o backend está rodando.", "erro");
@@ -383,12 +385,13 @@ async function salvarEdicao(event) {
 
         if (response.status === 404) {
             mostrarMensagem("Esse material não existe mais.", "erro");
-        } else if (!response.ok) {
+            return;
+        }
+        if (!response.ok) {
             throw new Error(await lerMensagemDeErro(response));
-        } else {
-            mostrarMensagem("Material atualizado com sucesso!");
         }
 
+        mostrarMensagem("Material atualizado com sucesso!");
         bootstrap.Modal.getInstance(document.querySelector("#modal-edicao")).hide();
         materialEmEdicao = null;
         carregarMateriais();
