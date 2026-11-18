@@ -97,7 +97,7 @@ Bom, nós buscamos entender como fariamos a ligação da API com o front de dive
 
 3 . Gabriel: Compreendi a utilização do JavaScript para a integração de uma API no front-end;<br>
 
-4 . Pedro: ;
+4 . Pedro: Aprendi a utilizar JavaScript para consumir APIs, realizar requisições HTTP e manipular os dados, integrando as funcionalidades do back-end à interface do usuário. <br>
 
 ## Integrantes e RGM:
 1 . Angelo Apontes Cabral 114.092
