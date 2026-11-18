@@ -91,7 +91,7 @@ Como dito anteriormente focamos em uma página simples e minimalista, então fiz
 Bom, nós buscamos entender como fariamos a ligação da API com o front de diversas maneiras, através de sites, publicações de exemplos, e também através de recursos de IA que buscamos usa-lo para entender melhor o funcionamento de um projeto web voltado para essa linguagem(C#). A questão do Git tivemos auxilio dos professores em sala de aula, de como usarmos a ferramenta, nos dando dicas de como prosseguir com ela.
 
 ## O que cada integrante aprendeu:
-1 . Angelo: ;<br>
+1 . Angelo: Aprendi a me comunicar com a equipe e para que serve o GET, PUT, POST e DELETE alem de ajudar a aplica-los no JS ;<br>
 
 2 . Daniel: Aprimorei meus conhecimentos em estruturação de html e css, juntamente da utilização do Bootstrap. Além disso entendi de maneira correta o funcionamento do Git;<br>
 
