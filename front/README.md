@@ -1,5 +1,5 @@
 # O que foi desenvolvido:
-Inicialmente desenvlvemos um sistema para gerênciamento de uma biblioteca, onde nela seria possivel exibir, alterar e cadastrar materiais, como por exemplo, livros e revistas. Buscamos trazer uma interface simples que não demandasse muitas técnicas para que pudessemos entregar o sistema a tempo, por isso focams em algo simples e minimalista.
+Inicialmente desenvolvemos um sistema para gerenciamento de uma biblioteca, onde nela seria possivel exibir, alterar e cadastrar materiais, como por exemplo, livros e revistas. Buscamos trazer uma interface simples que não demandasse muitas técnicas para que pudessemos entregar o sistema a tempo, por isso focams em algo simples e minimalista.
 
 ## Como executar a API:
 1 . Clone o Repositório( Via CMD ):
@@ -85,15 +85,15 @@ Como dito anteriormente focamos em uma página simples e minimalista, então fiz
 - Se alguém souber, completar fazendo favor!
 
 ## Dificuldades encontradas;
-- Inicialmente nossa principal dificuldade foi tentar entender como fariamos a ligação de uma API em C# com o front feito em HTML e CSS, até o momente nunca tinhamos tido o contato com esse tipo de implementação, então foi algo novo que tivemos que buscar a entender e realizar o projeto. Outra dificuldade que encontramos no inicio foi a questão de organização no git, tivemos muitos conlitos por pouco conhecimento e uso da ferramenta, porém acabamos nos acostumando com a ferramenta em questão.
+- Inicialmente nossa principal dificuldade foi tentar entender como fariamos a ligação de uma API em C# com o front feito em HTML e CSS, até o momente nunca tinhamos tido o contato com esse tipo de implementação, então foi algo novo que tivemos que buscar a entender e realizar o projeto. Outra dificuldade que encontramos no inicio foi a questão de organização no Git, tivemos muitos conlitos por pouco conhecimento e uso da ferramenta, porém acabamos nos acostumando com a ferramenta em questão.
 
 ## Como as dificuldades foram resolvidas:
-Bom nós buscamos esntender como fariamos a ligação da API com o front de diversas maneiras, através de sites publicações de exemplos, e também através de recursos de IA que buscamos usalo para entender melhor o funcionamento de um projeto web voltado para essa linguagem(C#). A questão do Git tivemos auxilio dos professores em sala de aula, de como usarmos a ferramenta, nos dando dicas de como prosseguir com ela.
+Bom, nós buscamos entender como fariamos a ligação da API com o front de diversas maneiras, através de sites, publicações de exemplos, e também através de recursos de IA que buscamos usa-lo para entender melhor o funcionamento de um projeto web voltado para essa linguagem(C#). A questão do Git tivemos auxilio dos professores em sala de aula, de como usarmos a ferramenta, nos dando dicas de como prosseguir com ela.
 
 ## O que cada integrante aprendeu:
 1 . Angelo: ;<br>
 
-2 . Daniel: Aprimprei meus conhecimentos em estruturação de html e css, juntamente da utilização do Bootstrap. Além disso entendi de maneira correta o funcionamento do Git;<br>
+2 . Daniel: Aprimorei meus conhecimentos em estruturação de html e css, juntamente da utilização do Bootstrap. Além disso entendi de maneira correta o funcionamento do Git;<br>
 
 3 . Gabriel: ;<br>
 
